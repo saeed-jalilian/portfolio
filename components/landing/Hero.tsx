@@ -1,73 +1,44 @@
-import { site } from "@/content/site";
 import type { Content } from "@/content/types";
-import { ArrowIcon } from "./Icons";
-import { WindowDots } from "./WindowDots";
-
-const str = "text-accent";
-
-function CodeCard() {
-  return (
-    <div
-      dir="ltr"
-      lang="en"
-      className="max-w-[520px] min-w-0 flex-[1_1_400px] overflow-hidden rounded-[20px] border border-code-border bg-code-bg shadow-code"
-    >
-      <div className="flex items-center gap-2 border-b border-code-line px-[18px] py-3.5">
-        <WindowDots className="size-[11px] bg-code-dot" />
-        <span className="ms-3 font-mono text-[13px] text-code-muted">developer.ts</span>
-      </div>
-      <pre className="m-0 overflow-x-auto px-6 pt-[26px] pb-[30px] font-mono text-[14.5px] leading-[1.95] whitespace-pre-wrap text-code-text">
-        <span className="text-code-keyword">const</span> saeed = {"{\n  "}name:{" "}
-        <span className={str}>&quot;{site.name}&quot;</span>
-        {",\n  "}role: <span className={str}>&quot;Full-Stack Developer&quot;</span>
-        {",\n  "}stack: [<span className={str}>&quot;Next.js&quot;</span>,{" "}
-        <span className={str}>&quot;Nest.js&quot;</span>
-        {"],\n  "}shippedWith: [<span className={str}>&quot;Django&quot;</span>,{" "}
-        <span className={str}>&quot;FastAPI&quot;</span>
-        {"],\n  "}designsToo: <span className="text-warn">true</span>
-        {",\n  "}available: <span className="text-warn">true</span>
-        {",\n};\n\n"}
-        <span className="text-code-muted">{"// let's build something great →"}</span>
-        {"\n"}saeed.<span className="text-code-fn">contact</span>();
-      </pre>
-    </div>
-  );
-}
 
 export function Hero({ c }: { c: Content }) {
   return (
-    <section
-      id="top"
-      className="page-container flex flex-wrap items-center gap-16 pt-16 pb-14 md:pt-24 md:pb-[72px]"
-    >
-      <div className="flex min-w-0 flex-[999_1_520px] flex-col gap-7">
-        <div className="inline-flex items-center gap-2.5 self-start rounded-full border border-line2 px-4 py-2 text-sm text-muted">
-          <span className="size-2 rounded-full bg-accent shadow-[0_0_0_4px_var(--accent-ring)]" />
-          {c.status}
+    <section id="top" className="page-container pt-16 pb-4 md:pt-28">
+      <p className="m-0 flex items-center gap-2.5 text-sm text-muted">
+        <span className="size-2 rounded-full bg-accent" aria-hidden="true" />
+        {c.status}
+      </p>
+      <h1 className="font-display m-0 mt-8 max-w-[22ch] text-[clamp(2.5rem,6.4vw,4.75rem)] leading-[1.08] font-bold rtl:font-medium rtl:max-w-[30ch] rtl:text-[clamp(2.25rem,5.2vw,4rem)] rtl:leading-[1.4]">
+        {c.hero.before}
+        <span className="text-accent-text italic rtl:not-italic">{c.hero.highlight}</span>
+        {c.hero.after}
+      </h1>
+      <div className="mt-14 grid gap-12 border-t border-line pt-10 md:grid-cols-[3fr_2fr] md:gap-16">
+        <div className="flex flex-col gap-8">
+          <p className="m-0 max-w-[560px] text-lg leading-[1.85] text-muted">{c.hero.sub}</p>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="#work"
+              className="inline-flex h-12 items-center rounded-lg bg-accent px-6 font-medium text-accent-fg transition-opacity hover:opacity-90"
+            >
+              {c.hero.ctaWork}
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex h-12 items-center rounded-lg border border-line2 px-6 font-medium transition-colors hover:border-text"
+            >
+              {c.hero.ctaContact}
+            </a>
+          </div>
         </div>
-        <h1 className="m-0 text-[clamp(2.5rem,5.2vw,4.6rem)] leading-[1.08] font-black tracking-[-2px] rtl:leading-[1.3] rtl:tracking-normal">
-          {c.hero.before}
-          <span className="text-accent-text">{c.hero.highlight}</span>
-          {c.hero.after}
-        </h1>
-        <p className="m-0 max-w-[600px] text-[1.2rem] leading-[1.9] text-muted">{c.hero.sub}</p>
-        <div className="flex flex-wrap gap-3.5 pt-2">
-          <a
-            href="#work"
-            className="inline-flex h-[54px] items-center gap-2.5 rounded-[14px] bg-accent px-7 text-base font-extrabold text-ink"
-          >
-            {c.hero.ctaWork}
-            <ArrowIcon />
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex h-[54px] items-center rounded-[14px] border border-line2 px-7 text-base font-bold text-text"
-          >
-            {c.hero.ctaContact}
-          </a>
-        </div>
+        <dl className="m-0 flex flex-col text-base">
+          {c.hero.facts.map((f) => (
+            <div key={f.label} className="flex flex-col gap-1 border-b border-line py-4 first:pt-0">
+              <dt className="text-sm text-dim">{f.label}</dt>
+              <dd className="m-0" dir="auto">{f.value}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
-      <CodeCard />
     </section>
   );
 }

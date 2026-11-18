@@ -1,20 +1,14 @@
 /**
- * Shared facts. Values wrapped in [brackets] are placeholders: they render as
- * visible text and their links fall back to #contact until replaced.
+ * Shared facts. Values wrapped in [brackets] are placeholders: they are hidden
+ * from the contact list until replaced with real ones.
  */
 export const site = {
   name: "Saeed Jalilian",
   domain: "saeed-jalilian.ir",
   siteUrl: "https://saeed-jalilian.ir",
   github: "https://github.com/saeed-jalilian",
-  email: "[you@email.com]",
+  email: "jalilian.saeed75@gmail.com",
   phone: "[+98 9xx xxx xxxx]",
   telegram: "[@username]",
   whatsapp: "[+98 9xx xxx xxxx]",
-  stack: [
-    { name: "Next.js", primary: true },
-    { name: "Nest.js", primary: true },
-    { name: "Django", primary: false },
-    { name: "FastAPI", primary: false },
-  ],
 } as const;

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { ContactId, ServiceIcon } from "@/content/types";
+import type { ContactId } from "@/content/types";
 
 interface IconProps {
   size?: number;
@@ -52,39 +52,9 @@ export function MoonIcon() {
   );
 }
 
-export function ImageIcon() {
-  return (
-    <Svg size={34} strokeWidth={1.6}>
-      <rect x="3" y="4" width="18" height="16" rx="2" />
-      <circle cx="9" cy="10" r="2" />
-      <path d="M21 16l-5-5-9 9" />
-    </Svg>
-  );
-}
-
-export function ServiceGlyph({ icon }: { icon: ServiceIcon }) {
-  return (
-    <Svg size={30} className="text-accent-text">
-      {icon === "frontend" && (
-        <>
-          <rect x="3" y="4" width="18" height="14" rx="2" />
-          <path d="M3 9h18M8 21h8" />
-        </>
-      )}
-      {icon === "backend" && (
-        <>
-          <ellipse cx="12" cy="5" rx="8" ry="3" />
-          <path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" />
-        </>
-      )}
-      {icon === "fullstack" && <path d="M5 12l5 5L20 7" />}
-    </Svg>
-  );
-}
-
 export function ContactGlyph({ id }: { id: ContactId }) {
   return (
-    <Svg size={22} className="text-accent-text">
+    <Svg size={22}>
       {id === "telegram" && (
         <>
           <path d="M21 4L3 11l6 2 2 6 3-4 5 4 2-15z" />

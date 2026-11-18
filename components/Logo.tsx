@@ -2,8 +2,10 @@
 // Pure SVG, so it has no font dependency.
 
 export const BRAND = {
-  lime: "#C8F169",
-  ink: "#0B0C0E",
+  accent: "#B4492A",
+  paper: "#F4EFE6",
+  ink: "#1C1A17",
+  accentOnInk: "#E0714D",
 } as const;
 
 /** Glyph strokes in the 512x512 tile: "s", "j" and "/". */
@@ -16,7 +18,7 @@ export const GLYPH = {
 type Tone = "default" | "inverse";
 
 /**
- * default: lime tile, ink glyph. inverse: ink tile, lime glyph.
+ * default: terracotta tile, paper glyph. inverse: ink tile, light terracotta glyph.
  * Pass `title=""` when a visible name sits next to the mark.
  */
 export function LogoMark({
@@ -32,8 +34,8 @@ export function LogoMark({
   const small = size <= 24;
   const sw = small ? 50 : 38;
   const scale = small ? 1.12 : 1;
-  const tile = tone === "inverse" ? BRAND.ink : BRAND.lime;
-  const fg = tone === "inverse" ? BRAND.lime : BRAND.ink;
+  const tile = tone === "inverse" ? BRAND.ink : BRAND.accent;
+  const fg = tone === "inverse" ? BRAND.accentOnInk : BRAND.paper;
 
   return (
     <svg

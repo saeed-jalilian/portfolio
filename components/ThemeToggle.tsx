@@ -15,8 +15,8 @@ function subscribe(onChange: () => void) {
 }
 
 const getSnapshot = (): Theme =>
-  document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
-const getServerSnapshot = (): Theme => "dark";
+  document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+const getServerSnapshot = (): Theme => "light";
 
 export function ThemeToggle({ toLight, toDark }: { toLight: string; toDark: string }) {
   const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
@@ -36,7 +36,7 @@ export function ThemeToggle({ toLight, toDark }: { toLight: string; toDark: stri
       type="button"
       onClick={toggle}
       aria-label={theme === "dark" ? toLight : toDark}
-      className="inline-flex size-11 cursor-pointer items-center justify-center rounded-xl border border-line2 bg-surface text-text"
+      className="inline-flex size-11 cursor-pointer items-center justify-center rounded-lg border border-line2 text-text"
     >
       <span className="show-in-dark">
         <SunIcon />

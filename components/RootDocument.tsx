@@ -11,7 +11,7 @@ export function RootDocument({ locale, children }: { locale: Locale; children: R
     <html
       lang={locale}
       dir={dir}
-      data-theme="dark"
+      data-theme="light"
       className={`${fontVariables[locale]} antialiased`}
       suppressHydrationWarning
     >

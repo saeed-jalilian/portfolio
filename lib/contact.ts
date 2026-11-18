@@ -7,12 +7,13 @@ export interface ContactLink {
   external: boolean;
 }
 
-/** Values in content/site.ts wrapped in [brackets] are not filled in yet. */
-const isPlaceholder = (v: string) => v.startsWith("[");
-
-export function getContactLink(id: ContactId): ContactLink {
+/**
+ * Values in content/site.ts wrapped in [brackets] are not filled in yet; those
+ * return null so the page never shows a placeholder.
+ */
+export function getContactLink(id: ContactId): ContactLink | null {
   const v: string = site[id];
-  if (isPlaceholder(v)) return { display: v, href: "#contact", external: false };
+  if (v.startsWith("[")) return null;
   switch (id) {
     case "telegram":
       return { display: v, href: `https://t.me/${v.replace(/^@/, "")}`, external: true };

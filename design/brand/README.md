@@ -11,8 +11,8 @@
 | `nextjs/` | Drop-in files for your Next.js (App Router) project | See below |
 
 ### SVG variants
-- `logo-mark.svg` — **primary**: lime tile, ink glyph
-- `logo-mark-inverse.svg` — ink tile, lime glyph (on light/busy backgrounds)
+- `logo-mark.svg` — **primary**: terracotta tile, paper glyph
+- `logo-mark-inverse.svg` — ink tile, light terracotta glyph (on light/busy backgrounds)
 - `logo-mark-black.svg` / `logo-mark-white.svg` — one-color (stamps, print, watermarks)
 - `logo-glyph.svg` — "sj/" alone, `currentColor` (inherits text color)
 - `logo-mark-small.svg` — heavier glyph for ≤24 px
@@ -40,8 +40,8 @@ Footer link for client sites:
 ```
 
 ## Rules
-- **Colors:** Lime `#C8F169` · Ink `#0B0C0E` · Paper `#F6F6F3`. On light backgrounds, lime *text* → `#3F6B0B`.
+- **Colors:** Terracotta `#B4492A` (`#E0714D` on dark) · Ink `#1C1A17` · Paper `#F4EFE6`.
 - **Clear space:** at least ¼ of the tile width on every side.
 - **Minimum size:** 16 px (use the small variant / favicon below 24 px).
 - **Don't:** stretch, rotate, recolor the glyph outside the variants, add shadows or gradients.
-- **Fonts for the wordmark:** Manrope 800 (EN), Vazirmatn 900 (FA) via `next/font/google`.
+- **Fonts for the wordmark:** Instrument Sans 600 (EN), Vazirmatn 700 (FA) via `next/font/google`.

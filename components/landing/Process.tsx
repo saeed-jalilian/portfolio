@@ -4,19 +4,16 @@ import { Section, SectionHeading } from "./SectionHeading";
 export function Process({ c }: { c: Content["process"] }) {
   return (
     <Section id="process">
-      <SectionHeading eyebrow="03 / process" title={c.title} />
-      <ol className="m-0 grid list-none grid-cols-[repeat(auto-fit,minmax(min(220px,100%),1fr))] gap-x-6 border-t border-line p-0">
-        {c.steps.map((s, i) => (
-          <li key={s.n} className="flex flex-col gap-3 py-[30px]">
-            <span
-              className={`text-[40px] font-black ${
-                i === c.steps.length - 1 ? "text-accent-text" : "text-dim"
-              }`}
-            >
-              {s.n}
-            </span>
-            <span className="text-[19px] font-extrabold">{s.title}</span>
-            <span className="text-[15px] leading-[1.9] text-muted">{s.body}</span>
+      <SectionHeading title={c.title} />
+      {/* The step number comes from a CSS counter, so each language uses its own digits. */}
+      <ol className="m-0 grid list-none grid-cols-[repeat(auto-fit,minmax(min(220px,100%),1fr))] gap-x-8 gap-y-10 p-0 [counter-reset:step]">
+        {c.steps.map((s) => (
+          <li
+            key={s.title}
+            className="flex flex-col gap-2 border-t border-line2 pt-5 [counter-increment:step] before:font-display before:text-3xl before:leading-none before:text-accent-text before:content-[counter(step,decimal)] rtl:before:content-[counter(step,persian)]"
+          >
+            <h3 className="m-0 text-lg font-medium">{s.title}</h3>
+            <p className="m-0 text-base leading-[1.85] text-muted">{s.body}</p>
           </li>
         ))}
       </ol>

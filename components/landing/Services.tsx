@@ -1,23 +1,21 @@
 import type { Content } from "@/content/types";
-import { ServiceGlyph } from "./Icons";
 import { Section, SectionHeading } from "./SectionHeading";
 
 export function Services({ c }: { c: Content["services"] }) {
   return (
     <Section id="services">
-      <SectionHeading eyebrow="02 / services" title={c.title} />
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(280px,100%),1fr))] gap-5">
+      <SectionHeading title={c.title} />
+      <ul className="m-0 flex list-none flex-col border-t border-line p-0">
         {c.items.map((s) => (
-          <div
+          <li
             key={s.title}
-            className="flex flex-col gap-4 rounded-[22px] border border-line bg-surface px-[30px] py-[34px]"
+            className="grid gap-3 border-b border-line py-8 md:grid-cols-[2fr_3fr] md:gap-16"
           >
-            <ServiceGlyph icon={s.icon} />
-            <h3 className="m-0 text-[21px] font-extrabold">{s.title}</h3>
-            <p className="m-0 text-[15.5px] leading-[1.9] text-muted">{s.body}</p>
-          </div>
+            <h3 className="m-0 text-xl leading-snug font-medium">{s.title}</h3>
+            <p className="m-0 max-w-[560px] text-base leading-[1.85] text-muted">{s.body}</p>
+          </li>
         ))}
-      </div>
+      </ul>
     </Section>
   );
 }
