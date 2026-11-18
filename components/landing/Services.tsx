@@ -9,7 +9,7 @@ export function Services({ c }: { c: Content["services"] }) {
         {c.items.map((s) => (
           <li
             key={s.title}
-            className="grid gap-3 border-b border-line py-8 md:grid-cols-[2fr_3fr] md:gap-16"
+            className="reveal grid gap-3 border-b border-line py-8 md:grid-cols-[2fr_3fr] md:gap-16"
           >
             <h3 className="m-0 text-xl leading-snug font-medium">{s.title}</h3>
             <p className="m-0 max-w-[560px] text-base leading-[1.85] text-muted">{s.body}</p>

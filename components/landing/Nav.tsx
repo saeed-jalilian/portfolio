@@ -31,14 +31,14 @@ export function Nav({ c }: { c: Content }) {
               lang={c.langSwitch.lang}
               hrefLang={c.langSwitch.lang}
               aria-label={c.langSwitch.aria}
-              className="inline-flex h-11 min-w-[52px] items-center justify-center rounded-lg border border-line2 px-3.5 text-sm font-medium"
+              className="inline-flex h-11 min-w-[52px] items-center justify-center rounded-lg border border-line2 px-3.5 text-sm font-medium press"
             >
               {c.langSwitch.label}
             </a>
             <ThemeToggle toLight={c.theme.toLight} toDark={c.theme.toDark} />
             <a
               href="#contact"
-              className="inline-flex h-11 items-center rounded-lg bg-accent px-4 font-medium text-accent-fg transition-opacity hover:opacity-90 sm:px-5"
+              className="inline-flex h-11 items-center rounded-lg bg-accent px-4 font-medium text-accent-fg press hover:opacity-90 sm:px-5"
             >
               {c.nav.cta}
             </a>

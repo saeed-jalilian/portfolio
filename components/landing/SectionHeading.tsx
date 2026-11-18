@@ -11,7 +11,7 @@ export function Section({ id, children }: { id: string; children: ReactNode }) {
 
 export function SectionHeading({ title }: { title: string }) {
   return (
-    <h2 className="font-display m-0 text-[clamp(2rem,4vw,3rem)] leading-tight font-bold rtl:font-medium rtl:leading-snug">
+    <h2 className="reveal font-display m-0 text-[clamp(2rem,4vw,3rem)] leading-tight font-bold rtl:font-medium rtl:leading-snug">
       {title}
     </h2>
   );

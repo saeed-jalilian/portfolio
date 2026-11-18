@@ -23,6 +23,7 @@ export function ThemeToggle({ toLight, toDark }: { toLight: string; toDark: stri
 
   function toggle() {
     const next: Theme = theme === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme-swap", "");
     document.documentElement.setAttribute("data-theme", next);
     try {
       localStorage.setItem("theme", next);
@@ -36,7 +37,7 @@ export function ThemeToggle({ toLight, toDark }: { toLight: string; toDark: stri
       type="button"
       onClick={toggle}
       aria-label={theme === "dark" ? toLight : toDark}
-      className="inline-flex size-11 cursor-pointer items-center justify-center rounded-lg border border-line2 text-text"
+      className="inline-flex size-11 cursor-pointer items-center justify-center rounded-lg border border-line2 text-text press"
     >
       <span className="show-in-dark">
         <SunIcon />

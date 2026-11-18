@@ -10,7 +10,7 @@ export function Process({ c }: { c: Content["process"] }) {
         {c.steps.map((s) => (
           <li
             key={s.title}
-            className="flex flex-col gap-2 border-t border-line2 pt-5 [counter-increment:step] before:font-display before:text-3xl before:leading-none before:text-accent-text before:content-[counter(step,decimal)] rtl:before:content-[counter(step,persian)]"
+            className="reveal flex flex-col gap-2 border-t border-line2 pt-5 [counter-increment:step] before:font-display before:text-3xl before:leading-none before:text-accent-text before:content-[counter(step,decimal)] rtl:before:content-[counter(step,persian)]"
           >
             <h3 className="m-0 text-lg font-medium">{s.title}</h3>
             <p className="m-0 text-base leading-[1.85] text-muted">{s.body}</p>

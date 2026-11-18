@@ -4,13 +4,13 @@ import { Section, SectionHeading } from "./SectionHeading";
 
 function ProjectCard({ p, c }: { p: Project; c: Content["work"] }) {
   return (
-    <article className="flex flex-col gap-10">
+    <article className="reveal flex flex-col gap-10">
       <a
         href={p.url}
         target="_blank"
         rel="noopener noreferrer"
         tabIndex={-1}
-        className="block overflow-hidden rounded-2xl border border-line"
+        className="group block overflow-hidden rounded-2xl border border-line"
       >
         {/* A fixed-size static asset: next/image would add nothing in a static export. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -20,7 +20,7 @@ function ProjectCard({ p, c }: { p: Project; c: Content["work"] }) {
           height={p.image.height}
           alt={p.image.alt}
           decoding="async"
-          className="block h-auto w-full"
+          className="block h-auto w-full transition-[scale] duration-300 ease-(--ease-out) group-hover:scale-[1.02]"
         />
       </a>
       <div className="grid gap-10 md:grid-cols-[3fr_2fr] md:gap-16">
@@ -51,7 +51,7 @@ function ProjectCard({ p, c }: { p: Project; c: Content["work"] }) {
             href={p.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-11 items-center gap-2.5 self-start font-medium text-accent-text underline-offset-4 hover:underline"
+            className="group inline-flex min-h-11 items-center gap-2.5 self-start font-medium text-accent-text underline-offset-4 hover:underline"
           >
             {c.visit}
             <bdi dir="ltr" lang="en" className="font-mono text-sm">

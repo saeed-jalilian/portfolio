@@ -29,7 +29,7 @@ function Svg({ size = 24, strokeWidth = 1.8, className, children }: IconProps) {
 
 export function ArrowIcon() {
   return (
-    <Svg size={18} strokeWidth={2.2} className="rtl:-scale-x-100">
+    <Svg size={18} strokeWidth={2.2} className="transition-[translate] duration-200 ease-(--ease-out) group-hover:translate-x-[3px] rtl:-scale-x-100 rtl:group-hover:-translate-x-[3px]">
       <path d="M5 12h14M13 6l6 6-6 6" />
     </Svg>
   );

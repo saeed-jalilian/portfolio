@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
 /* Theme palettes. Light ("paper") is the default; dark follows the system or the toggle. */
+:root {
+  /* Strong ease-out for UI motion; the built-in keywords are too weak. */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
 :root,
 [data-theme="light"] {
   color-scheme: light;
@@ -58,6 +63,17 @@
   padding-inline: 1.5rem;
 }
 
+/* Press feedback for buttons: scales down while held, plus the hover colour changes. */
+@utility press {
+  transition-property: scale, opacity, border-color;
+  transition-duration: 160ms;
+  transition-timing-function: var(--ease-out);
+
+  &:active {
+    scale: 0.97;
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -105,4 +121,84 @@ html[lang="en"] .font-display {
 [data-theme="light"] .show-in-dark,
 [data-theme="dark"] .show-in-light {
   display: none;
+}
+
+/* ---- Motion ---------------------------------------------------------------------------
+   Pure CSS, no client JS. Everything has a gentler reduced-motion variant (fade only). */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    translate: 0 12px;
+  }
+}
+
+/* Hero entrance on load; --i staggers the items by 70ms. */
+.enter {
+  animation: rise-in 500ms var(--ease-out) backwards;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+
+/* Scroll reveal, driven by scroll position as the element enters the viewport. Browsers without
+   scroll-driven animations just show the content. */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: rise-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+  }
+}
+
+/* Slow "available" ping around the status dot. */
+@keyframes ping {
+  0% {
+    opacity: 0.45;
+    scale: 1;
+  }
+  70%,
+  100% {
+    opacity: 0;
+    scale: 3;
+  }
+}
+
+.ping {
+  animation: ping 2.4s var(--ease-out) 2;
+}
+
+/* Theme toggle icon turns in when it is swapped (only after a click, not on load). */
+@keyframes icon-swap {
+  from {
+    opacity: 0;
+    rotate: -45deg;
+    scale: 0.8;
+  }
+}
+
+[data-theme-swap][data-theme="light"] .show-in-light,
+[data-theme-swap][data-theme="dark"] .show-in-dark {
+  display: inline-flex;
+  animation: icon-swap 200ms var(--ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enter,
+  .reveal {
+    animation-name: fade-in;
+  }
+
+  .ping {
+    animation: none;
+  }
+
+  [data-theme-swap][data-theme="light"] .show-in-light,
+  [data-theme-swap][data-theme="dark"] .show-in-dark {
+    animation-name: fade-in;
+  }
 }

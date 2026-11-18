@@ -7,7 +7,7 @@ export function About({ c }: { c: Content["about"] }) {
   return (
     <Section id="about">
       <SectionHeading title={c.title} />
-      <div className="flex max-w-[680px] flex-col gap-6">
+      <div className="reveal flex max-w-[680px] flex-col gap-6">
         <p className="m-0 text-2xl leading-[1.7] rtl:leading-[1.9]">{lead}</p>
         {rest.map((p) => (
           <p key={p} className="m-0 text-lg leading-[1.85] text-muted">
