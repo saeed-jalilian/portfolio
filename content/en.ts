@@ -1,7 +1,11 @@
 import type { Content } from "./types";
 
 export const en: Content = {
-  meta: { title: "Saeed Jalilian — Full-Stack Developer" },
+  meta: {
+    title: "Saeed Jalilian — Full-Stack Developer (Next.js & Nest.js)",
+    description:
+      "Full-stack developer building websites, online shops and admin panels with Next.js and Nest.js, from UI design to back-end, APIs and launch.",
+  },
   name: "Saeed Jalilian",
   jobTitle: "Full-Stack Developer",
   nav: {

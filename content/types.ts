@@ -16,7 +16,8 @@ export interface Project {
 }
 
 export interface Content {
-  meta: { title: string };
+  /** Search-result copy: title under ~60 characters, description ~140–160. */
+  meta: { title: string; description: string };
   name: string;
   jobTitle: string;
   nav: { work: string; services: string; about: string; process: string; cta: string };

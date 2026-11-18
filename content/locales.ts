@@ -8,6 +8,8 @@ interface LocaleConfig {
   /** Route path, with the trailing slash the static export uses. */
   path: string;
   ogLocale: string;
+  /** BCP-47 tag for schema.org `inLanguage`. */
+  langTag: string;
   /** Intl tag for dates (Persian calendar and digits for fa). */
   intlTag: string;
   bodyFont: string;
@@ -20,6 +22,7 @@ export const locales: Record<Locale, LocaleConfig> = {
     dir: "rtl",
     path: "/",
     ogLocale: "fa_IR",
+    langTag: "fa-IR",
     intlTag: "fa-IR-u-ca-persian",
     bodyFont: "font-fa",
   },
@@ -28,9 +31,12 @@ export const locales: Record<Locale, LocaleConfig> = {
     dir: "ltr",
     path: "/en/",
     ogLocale: "en_US",
+    langTag: "en-US",
     intlTag: "en-US",
     bodyFont: "font-en",
   },
 };
 
 export const localePaths = { fa: locales.fa.path, en: locales.en.path };
+
+export const otherLocale = (locale: Locale): Locale => (locale === "fa" ? "en" : "fa");
