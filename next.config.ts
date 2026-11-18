@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Fully static site: `next build` writes HTML to `out/` for GitHub Pages.
+  // Fully static site: `next build` writes HTML to `out/` for the Caddy server.
   output: "export",
   trailingSlash: true,
   images: { unoptimized: true },

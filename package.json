@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "python3 -m http.server 4321 -d out",
     "lint": "eslint",
-    "deploy:server": "bash deploy/deploy.sh"
+    "deploy:server": "bash ops/remote.sh deploy",
+    "ops": "bash ops/remote.sh"
   },
   "dependencies": {
     "next": "16.4.6",

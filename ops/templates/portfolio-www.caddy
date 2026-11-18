@@ -1,0 +1,8 @@
+# Appended when WWW_REDIRECT=true: www.<SITE_HOST> answers with a permanent redirect.
+http://www.__SITE_HOST__ {
+	redir https://__SITE_HOST__{uri} permanent
+}
+
+www.__SITE_HOST__ {
+	redir https://__SITE_HOST__{uri} permanent
+}

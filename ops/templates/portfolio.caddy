@@ -1,0 +1,43 @@
+# Filled in by bootstrap-server.sh (__PLACEHOLDERS__) and installed as
+# /etc/caddy/sites.d/portfolio.caddy. The server's Caddyfile imports that folder and
+# already sets the global options (loopback ports behind HAProxy, PROXY protocol), so
+# this file only describes the site. Caddy follows the `current` link on every request,
+# so a deploy is just a link swap: no reload.
+
+# The global option auto_https disable_redirects is on, so the plain-HTTP redirect is ours.
+http://__SITE_HOST__ {
+	redir https://__SITE_HOST__{uri} permanent
+}
+
+__SITE_HOST__ {
+	root * __BASE__/current/out
+	encode zstd gzip
+
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		X-Frame-Options DENY
+		-Server
+	}
+
+	# Pages are folders with an index.html (trailingSlash: true), so /en redirects to /en/.
+	# HTML is revalidated on every visit so a deploy never leaves a cached page pointing at
+	# build files that were removed; hashed build files never change and are kept for a year.
+	@html not path /_next/static/*
+	header @html Cache-Control "no-cache"
+	@assets path /_next/static/*
+	header @assets Cache-Control "public, max-age=31536000, immutable"
+
+	# Next writes these without an extension Caddy knows.
+	@og path /opengraph-image
+	header @og Content-Type image/png
+	@manifest path /manifest.webmanifest
+	header @manifest Content-Type application/manifest+json
+
+	handle_errors {
+		rewrite * /404.html
+		file_server
+	}
+	file_server
+}
