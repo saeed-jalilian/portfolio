@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>Saeed Jalilian — Full-Stack Developer</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&amp;family=Manrope:wght@400;500;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}a:hover{opacity:.85}
+*{box-sizing:border-box}
+button{font:inherit}
+</style>
+</helmet>
+<div dir="{{dir}}" lang="{{lang}}" style="background: {{c.bg}}; color: {{c.text}}; font-family: {{font}}; min-height: 100vh; overflow-x: hidden; transition: background .25s, color .25s">
+
+<!-- NAV -->
+<header style="position: sticky; top: 0; z-index: 10; background: {{c.navBg}}; backdrop-filter: blur(12px); border-bottom: 1px solid {{c.line}}">
+<nav style="max-width: 1240px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#top" style="display: flex; align-items: center; gap: 12px">
+<span dir="ltr" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; color: #0B0C0E; background: {{accent}}; width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center">sj/</span>
+<span style="font-weight: 800; font-size: 17px">{{t.name}}</span>
+</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px; font-size: 15px">
+<a href="#work" style="color: {{c.muted}}">{{t.navWork}}</a>
+<a href="#services" style="color: {{c.muted}}">{{t.navServices}}</a>
+<a href="#process" style="color: {{c.muted}}">{{t.navProcess}}</a>
+<div style="display: flex; align-items: center; gap: 8px">
+<button type="button" onClick="{{toggleLang}}" aria-label="{{t.langAria}}" style="height: 44px; min-width: 52px; padding: 0 14px; border-radius: 12px; border: 1px solid {{c.line2}}; background: {{c.surface}}; color: {{c.text}}; cursor: pointer; font-weight: 700; font-size: 14px">{{t.langBtn}}</button>
+<button type="button" onClick="{{toggleTheme}}" aria-label="{{t.themeAria}}" style="height: 44px; width: 44px; border-radius: 12px; border: 1px solid {{c.line2}}; background: {{c.surface}}; color: {{c.text}}; cursor: pointer; display: inline-flex; align-items: center; justify-content: center">
+<sc-if value="{{isDark}}" hint-placeholder-val="{{ true }}">
+<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+</sc-if>
+<sc-if value="{{isLight}}" hint-placeholder-val="{{ false }}">
+<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"></path></svg>
+</sc-if>
+</button>
+<a href="#contact" style="color: {{c.ctaFg}}; background: {{c.ctaBg}}; padding: 0 20px; border-radius: 12px; font-weight: 700; height: 44px; display: inline-flex; align-items: center">{{t.navCta}}</a>
+</div>
+</div>
+</nav>
+</header>
+
+<!-- HERO -->
+<section id="top" style="max-width: 1240px; margin: 0 auto; padding: 96px 24px 72px; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
+<div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+<div style="display: inline-flex; align-self: flex-start; align-items: center; gap: 10px; border: 1px solid {{c.line2}}; border-radius: 999px; padding: 8px 16px; font-size: 14px; color: {{c.muted}}">
+<span style="width: 8px; height: 8px; border-radius: 50%; background: {{accent}}; box-shadow: 0 0 0 4px {{c.accentRing}}"></span>
+{{t.status}}
+</div>
+<h1 style="margin: 0; font-size: clamp(2.5rem, 5.2vw, 4.6rem); line-height: {{c.h1Lh}}; font-weight: 900; letter-spacing: {{c.h1Ls}}">{{t.h1a}}<span style="color: {{c.accentText}}">{{t.h1b}}</span>{{t.h1c}}</h1>
+<p style="margin: 0; font-size: 1.2rem; line-height: 1.9; color: {{c.muted}}; max-width: 600px">{{t.heroSub}}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; padding-top: 8px">
+<a href="#work" style="background: {{accent}}; color: #0B0C0E; font-weight: 800; font-size: 16px; padding: 0 28px; border-radius: 14px; height: 54px; display: inline-flex; align-items: center; gap: 10px">
+{{t.ctaWork}}
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="{{arrowFlip}}"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+<a href="#contact" style="border: 1px solid {{c.line2}}; color: {{c.text}}; font-weight: 700; font-size: 16px; padding: 0 28px; border-radius: 14px; height: 54px; display: inline-flex; align-items: center">{{t.ctaContact}}</a>
+</div>
+</div>
+
+<!-- code card (stays dark in both themes) -->
+<div dir="ltr" style="flex: 1 1 400px; min-width: 0; max-width: 520px; background: #111216; border: 1px solid {{c.codeBorder}}; border-radius: 20px; overflow: hidden; box-shadow: {{c.codeShadow}}">
+<div style="display: flex; align-items: center; gap: 8px; padding: 14px 18px; border-bottom: 1px solid #1E2026">
+<span style="width: 11px; height: 11px; border-radius: 50%; background: #3A3D46"></span>
+<span style="width: 11px; height: 11px; border-radius: 50%; background: #3A3D46"></span>
+<span style="width: 11px; height: 11px; border-radius: 50%; background: #3A3D46"></span>
+<span style="margin-left: 12px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #8C909A">developer.ts</span>
+</div>
+<pre style="margin: 0; padding: 26px 24px 30px; font-family: 'JetBrains Mono', monospace; font-size: 14.5px; line-height: 1.95; color: #D5D7DC; white-space: pre-wrap; overflow-x: auto"><span style="color: #C792EA">const</span> saeed = {
+  name: <span style="color: {{accent}}">"Saeed Jalilian"</span>,
+  role: <span style="color: {{accent}}">"Full-Stack Developer"</span>,
+  stack: [<span style="color: {{accent}}">"Next.js"</span>, <span style="color: {{accent}}">"Nest.js"</span>],
+  shippedWith: [<span style="color: {{accent}}">"Django"</span>, <span style="color: {{accent}}">"FastAPI"</span>],
+  designsToo: <span style="color: #F2A65A">true</span>,
+  available: <span style="color: #F2A65A">true</span>,
+};
+
+<span style="color: #8C909A">// let's build something great →</span>
+saeed.<span style="color: #82AAFF">contact</span>();</pre>
+</div>
+</section>
+
+<!-- STACK STRIP -->
+<section style="border-top: 1px solid {{c.line}}; border-bottom: 1px solid {{c.line}}">
+<div style="max-width: 1240px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px">
+<span style="font-size: 15px; color: {{c.dim}}">{{t.stackLabel}}</span>
+<div dir="ltr" style="display: flex; flex-wrap: wrap; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 15px">
+<span style="padding: 10px 18px; border-radius: 10px; background: {{c.surface}}; border: 1px solid {{accent}}; color: {{c.text}}">Next.js</span>
+<span style="padding: 10px 18px; border-radius: 10px; background: {{c.surface}}; border: 1px solid {{accent}}; color: {{c.text}}">Nest.js</span>
+<span style="padding: 10px 18px; border-radius: 10px; background: {{c.surface}}; border: 1px solid {{c.line2}}; color: {{c.muted}}">Django</span>
+<span style="padding: 10px 18px; border-radius: 10px; background: {{c.surface}}; border: 1px solid {{c.line2}}; color: {{c.muted}}">FastAPI</span>
+</div>
+</div>
+</section>
+
+<!-- WORK -->
+<section id="work" style="max-width: 1240px; margin: 0 auto; padding: 120px 24px 40px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: {{c.accentText}}">01 / work</span>
+<h2 style="margin: 0; font-size: clamp(2rem, 3.6vw, 3rem); font-weight: 800">{{t.workTitle}}</h2>
+</div>
+<p style="margin: 0; max-width: 440px; color: {{c.muted}}; line-height: 1.9; font-size: 16px">{{t.workSub}}</p>
+</div>
+
+<article style="background: {{c.surface}}; border: 1px solid {{c.line}}; border-radius: 28px; overflow: hidden; display: flex; flex-wrap: wrap">
+<div style="flex: 999 1 560px; min-width: 0; padding: 32px; background: {{c.surface2}}; display: flex; align-items: center; justify-content: center">
+<div style="width: 100%; border-radius: 14px; overflow: hidden; border: 1px solid {{c.line2}}; background: {{c.bg}}">
+<div dir="ltr" style="display: flex; align-items: center; gap: 7px; padding: 11px 14px; background: {{c.chrome}}">
+<span style="width: 9px; height: 9px; border-radius: 50%; background: {{c.dot}}"></span>
+<span style="width: 9px; height: 9px; border-radius: 50%; background: {{c.dot}}"></span>
+<span style="width: 9px; height: 9px; border-radius: 50%; background: {{c.dot}}"></span>
+<span style="margin-left: 10px; flex: 1; background: {{c.bg}}; border-radius: 6px; padding: 5px 12px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{c.dim}}">[project-domain.ir]</span>
+</div>
+<div style="height: 340px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: {{c.dim}}; font-size: 15px; background-image: {{c.stripes}}">
+<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-9 9"></path></svg>
+{{t.shot}}
+</div>
+</div>
+</div>
+<div style="flex: 1 1 380px; min-width: 0; padding: 40px 36px; display: flex; flex-direction: column; gap: 22px; justify-content: center">
+<div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+<span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: {{c.warnText}}; background: rgba(242,166,90,0.12); border: 1px solid rgba(242,166,90,0.4); padding: 6px 12px; border-radius: 999px">
+<span style="width: 7px; height: 7px; border-radius: 50%; background: #F2A65A"></span>
+{{t.inProgress}}
+</span>
+<span style="font-size: 13px; color: {{c.dim}}">{{t.year}}</span>
+</div>
+<h3 style="margin: 0; font-size: 30px; font-weight: 800; line-height: 1.4">{{t.projName}}</h3>
+<p style="margin: 0; color: {{c.muted}}; line-height: 1.9; font-size: 16px">{{t.projDesc}}</p>
+<div dir="ltr" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: {{tagJustify}}; font-family: 'JetBrains Mono', monospace; font-size: 13px">
+<span style="padding: 6px 12px; border-radius: 8px; background: {{c.surface2}}; color: {{c.text}}">Next.js</span>
+<span style="padding: 6px 12px; border-radius: 8px; background: {{c.surface2}}; color: {{c.text}}">Nest.js</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px; border-top: 1px solid {{c.line}}; padding-top: 22px; font-size: 15px">
+<div style="display: flex; justify-content: space-between; gap: 12px"><span style="color: {{c.dim}}">{{t.roleLabel}}</span><span>{{t.roleVal}}</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px"><span style="color: {{c.dim}}">{{t.statusLabel}}</span><span>{{t.statusVal}}</span></div>
+</div>
+</div>
+</article>
+
+<a href="#contact" style="border: 1.5px dashed {{c.line2}}; border-radius: 28px; padding: 44px 36px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; color: {{c.text}}">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 26px; font-weight: 800">{{t.nextTitle}}</span>
+<span style="color: {{c.muted}}; font-size: 16px; line-height: 1.9">{{t.nextSub}}</span>
+</div>
+<span style="display: inline-flex; align-items: center; gap: 10px; font-weight: 700; color: {{c.accentText}}; font-size: 16px; min-height: 44px">
+{{t.nextCta}}
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="{{arrowFlip}}"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</span>
+</a>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="max-width: 1240px; margin: 0 auto; padding: 120px 24px 40px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: {{c.accentText}}">02 / services</span>
+<h2 style="margin: 0; font-size: clamp(2rem, 3.6vw, 3rem); font-weight: 800">{{t.servTitle}}</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
+<div style="background: {{c.surface}}; border: 1px solid {{c.line}}; border-radius: 22px; padding: 34px 30px; display: flex; flex-direction: column; gap: 16px">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{c.accentText}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M3 9h18M8 21h8"></path></svg>
+<h3 style="margin: 0; font-size: 21px; font-weight: 800">{{t.s1t}}</h3>
+<p style="margin: 0; color: {{c.muted}}; line-height: 1.9; font-size: 15.5px">{{t.s1b}}</p>
+</div>
+<div style="background: {{c.surface}}; border: 1px solid {{c.line}}; border-radius: 22px; padding: 34px 30px; display: flex; flex-direction: column; gap: 16px">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{c.accentText}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg>
+<h3 style="margin: 0; font-size: 21px; font-weight: 800">{{t.s2t}}</h3>
+<p style="margin: 0; color: {{c.muted}}; line-height: 1.9; font-size: 15.5px">{{t.s2b}}</p>
+</div>
+<div style="background: {{c.surface}}; border: 1px solid {{c.line}}; border-radius: 22px; padding: 34px 30px; display: flex; flex-direction: column; gap: 16px">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{c.accentText}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>
+<h3 style="margin: 0; font-size: 21px; font-weight: 800">{{t.s3t}}</h3>
+<p style="margin: 0; color: {{c.muted}}; line-height: 1.9; font-size: 15.5px">{{t.s3b}}</p>
+</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" style="max-width: 1240px; margin: 0 auto; padding: 120px 24px 40px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: {{c.accentText}}">03 / process</span>
+<h2 style="margin: 0; font-size: clamp(2rem, 3.6vw, 3rem); font-weight: 800">{{t.procTitle}}</h2>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0 24px; border-top: 1px solid {{c.line}}">
+<sc-for list="{{steps}}" as="step" hint-placeholder-count="4">
+<li style="padding: 30px 0; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 40px; font-weight: 900; color: {{step.numColor}}">{{step.n}}</span>
+<span style="font-size: 19px; font-weight: 800">{{step.title}}</span>
+<span style="color: {{c.muted}}; line-height: 1.9; font-size: 15px">{{step.body}}</span>
+</li>
+</sc-for>
+</ol>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="max-width: 1240px; margin: 0 auto; padding: 120px 24px 100px">
+<div style="background: {{c.surface}}; border: 1px solid {{c.line}}; border-radius: 32px; padding: clamp(32px, 5vw, 72px); display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start">
+<div style="flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: {{c.accentText}}">04 / contact</span>
+<h2 style="margin: 0; font-size: clamp(2.2rem, 4.4vw, 3.8rem); font-weight: 900; line-height: 1.3">{{t.contactA}}<br><span style="color: {{c.accentText}}">{{t.contactB}}</span></h2>
+<p style="margin: 0; color: {{c.muted}}; line-height: 1.9; font-size: 17px; max-width: 480px">{{t.contactSub}}</p>
+</div>
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<a href="#" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 22px; border-radius: 16px; background: {{c.surface2}}; border: 1px solid {{c.line2}}; min-height: 64px">
+<span style="display: flex; align-items: center; gap: 14px">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{c.accentText}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 4L3 11l6 2 2 6 3-4 5 4 2-15z"></path><path d="M9 13l12-9"></path></svg>
+<span style="font-weight: 700">{{t.cTelegram}}</span>
+</span>
+<span dir="ltr" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: {{c.muted}}">[@username]</span>
+</a>
+<a href="#" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 22px; border-radius: 16px; background: {{c.surface2}}; border: 1px solid {{c.line2}}; min-height: 64px">
+<span style="display: flex; align-items: center; gap: 14px">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{c.accentText}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
+<span style="font-weight: 700">{{t.cEmail}}</span>
+</span>
+<span dir="ltr" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: {{c.muted}}">[you@email.com]</span>
+</a>
+<a href="#" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 22px; border-radius: 16px; background: {{c.surface2}}; border: 1px solid {{c.line2}}; min-height: 64px">
+<span style="display: flex; align-items: center; gap: 14px">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{c.accentText}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"></path></svg>
+<span style="font-weight: 700">{{t.cPhone}}</span>
+</span>
+<span dir="ltr" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: {{c.muted}}">[+98 9xx xxx xxxx]</span>
+</a>
+<a href="#" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 22px; border-radius: 16px; background: {{c.surface2}}; border: 1px solid {{c.line2}}; min-height: 64px">
+<span style="display: flex; align-items: center; gap: 14px">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{c.accentText}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"></path></svg>
+<span style="font-weight: 700">{{t.cGithub}}</span>
+</span>
+<span dir="ltr" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: {{c.muted}}">[github.com/username]</span>
+</a>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer style="border-top: 1px solid {{c.line}}">
+<div style="max-width: 1240px; margin: 0 auto; padding: 28px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; color: {{c.dim}}">
+<span>{{t.footer}}</span>
+<span dir="ltr" style="font-family: 'JetBrains Mono', monospace">saeed-jalilian.ir</span>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#C8F169","options":["#C8F169","#7DD3FC","#F2A65A","#C4B5FD"]},"startTheme":{"editor":"enum","options":["dark","light"],"default":"dark"},"startLang":{"editor":"enum","options":["fa","en"],"default":"fa"},"$preview":{"width":1440,"height":3900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { theme: null, lang: null };
+  }
+  renderVals() {
+    const accent = this.props.accent ?? '#C8F169';
+    const theme = this.state.theme ?? this.props.startTheme ?? 'dark';
+    const lang = this.state.lang ?? this.props.startLang ?? 'fa';
+    const dark = theme === 'dark';
+    const fa = lang === 'fa';
+
+    const c = dark ? {
+      bg: '#0B0C0E', surface: '#111216', surface2: '#16181D', chrome: '#1A1C22', dot: '#3A3D46',
+      line: '#1E2026', line2: '#2C2F37', text: '#ECEDEE', muted: '#A7AAB2', dim: '#8C909A',
+      navBg: 'rgba(11,12,14,0.86)', ctaBg: '#ECEDEE', ctaFg: '#0B0C0E',
+      accentText: accent, accentRing: 'rgba(200,241,105,0.15)', warnText: '#F2A65A',
+      codeBorder: '#23252B', codeShadow: '0 40px 80px -30px rgba(0,0,0,0.7)',
+      stripes: 'repeating-linear-gradient(135deg, #121318 0 14px, #0E0F12 14px 28px)'
+    } : {
+      bg: '#F6F6F3', surface: '#FFFFFF', surface2: '#EFEFEA', chrome: '#E9E9E3', dot: '#C9C9C2',
+      line: '#E3E3DD', line2: '#D3D3CC', text: '#121316', muted: '#4F525A', dim: '#62656D',
+      navBg: 'rgba(246,246,243,0.86)', ctaBg: '#121316', ctaFg: '#F6F6F3',
+      accentText: '#3F6B0B', accentRing: 'rgba(120,170,30,0.18)', warnText: '#9A4F0B',
+      codeBorder: '#111216', codeShadow: '0 40px 80px -40px rgba(20,20,30,0.45)',
+      stripes: 'repeating-linear-gradient(135deg, #F1F1EC 0 14px, #F7F7F3 14px 28px)'
+    };
+    c.h1Lh = fa ? '1.3' : '1.08';
+    c.h1Ls = fa ? '0' : '-2px';
+
+    const t = fa ? {
+      name: 'سعید جلیلیان', navWork: 'نمونه‌کارها', navServices: 'خدمات', navProcess: 'روند کار', navCta: 'شروع همکاری',
+      langBtn: 'EN', langAria: 'Switch to English', themeAria: dark ? 'حالت روشن' : 'حالت تاریک',
+      status: 'آماده‌ی پذیرش پروژه‌ی جدید',
+      h1a: 'وب‌سایت‌هایی می‌سازم که ', h1b: 'هم زیبا هستند', h1c: '، هم بی‌نقص کار می‌کنند.',
+      heroSub: 'سعید جلیلیان هستم، توسعه‌دهنده‌ی فول‌استک. رابط کاربری را با Next.js و بک‌اند را با Nest.js می‌سازم؛ از اولین طرح تا روزی که سایت شما آنلاین می‌شود، کنارتان هستم.',
+      ctaWork: 'دیدن نمونه‌کارها', ctaContact: 'راه‌های ارتباط',
+      stackLabel: 'ابزارهایی که با آن‌ها می‌سازم',
+      workTitle: 'نمونه‌کارها', workSub: 'پروژه‌هایی که از طراحی تا کدنویسی‌شان را خودم انجام داده‌ام.',
+      shot: '[اسکرین‌شات پروژه]', inProgress: 'در حال توسعه', year: '۱۴۰۵',
+      projName: '[نام پروژه]', projDesc: '[توضیح کوتاه پروژه: برای چه کسب‌وکاری ساخته شده، چه مشکلی را حل می‌کند و چه بخش‌هایی دارد.]',
+      roleLabel: 'نقش من', roleVal: 'طراحی، فرانت‌اند، بک‌اند', statusLabel: 'وضعیت', statusVal: 'به‌زودی آنلاین می‌شود',
+      nextTitle: 'جای پروژه‌ی بعدی خالی است.', nextSub: 'شاید سایت شما نمونه‌کار بعدی این صفحه باشد.', nextCta: 'بیایید صحبت کنیم',
+      servTitle: 'چه کاری برایتان انجام می‌دهم',
+      s1t: 'طراحی و فرانت‌اند', s1b: 'طراحی رابط کاربری اختصاصی و پیاده‌سازی سریع، ریسپانسیو و سئو‌پسند با Next.js.',
+      s2t: 'بک‌اند و API', s2b: 'طراحی API و منطق سرور با Nest.js؛ و در صورت نیاز Django یا FastAPI.',
+      s3t: 'پروژه‌ی کامل، از صفر', s3b: 'یک نفر برای کل مسیر؛ طراحی، فرانت، بک‌اند و انتشار، بدون دردسر هماهنگی بین چند تیم.',
+      procTitle: 'روند همکاری',
+      contactA: 'ایده‌ای در ذهن دارید؟', contactB: 'بیایید بسازیمش.',
+      contactSub: 'از هر راهی که راحت‌ترید پیام بدهید؛ معمولاً در کمتر از [۲۴ ساعت] جواب می‌دهم.',
+      cTelegram: 'تلگرام', cEmail: 'ایمیل', cPhone: 'تماس / واتس‌اپ', cGithub: 'گیت‌هاب',
+      footer: '© ۱۴۰۵ سعید جلیلیان — طراحی و توسعه توسط خودم.'
+    } : {
+      name: 'Saeed Jalilian', navWork: 'Work', navServices: 'Services', navProcess: 'Process', navCta: 'Start a project',
+      langBtn: 'فا', langAria: 'تغییر زبان به فارسی', themeAria: dark ? 'Switch to light mode' : 'Switch to dark mode',
+      status: 'Available for new projects',
+      h1a: 'I build websites that ', h1b: 'look beautiful', h1c: ' and work flawlessly.',
+      heroSub: 'I’m Saeed Jalilian, a full-stack developer. I craft interfaces with Next.js and back-ends with Nest.js — and stay with you from the first sketch to the day your site goes live.',
+      ctaWork: 'See my work', ctaContact: 'Get in touch',
+      stackLabel: 'Tools I build with',
+      workTitle: 'Selected work', workSub: 'Projects I’ve designed and engineered end to end.',
+      shot: '[Project screenshot]', inProgress: 'In progress', year: '2026',
+      projName: '[Project name]', projDesc: '[Short project description: who it’s for, what problem it solves, and what it includes.]',
+      roleLabel: 'My role', roleVal: 'Design, front-end, back-end', statusLabel: 'Status', statusVal: 'Launching soon',
+      nextTitle: 'The next slot is open.', nextSub: 'Your website could be the next project on this page.', nextCta: 'Let’s talk',
+      servTitle: 'What I can do for you',
+      s1t: 'Design & front-end', s1b: 'Custom UI design, built fast, responsive and SEO-friendly with Next.js.',
+      s2t: 'Back-end & APIs', s2b: 'API design and server logic with Nest.js — or Django and FastAPI when the project calls for it.',
+      s3t: 'Full projects, from zero', s3b: 'One person for the whole journey: design, front-end, back-end and launch — no juggling multiple teams.',
+      procTitle: 'How we’ll work',
+      contactA: 'Have an idea in mind?', contactB: 'Let’s build it.',
+      contactSub: 'Reach out however you prefer — I usually reply within [24 hours].',
+      cTelegram: 'Telegram', cEmail: 'Email', cPhone: 'Phone / WhatsApp', cGithub: 'GitHub',
+      footer: '© 2026 Saeed Jalilian — designed & built by me.'
+    };
+
+    const stepText = fa ? [
+      ['۰۱', 'گفت‌وگو', 'نیاز، مخاطب و هدف کسب‌وکارتان را دقیق می‌شناسم.'],
+      ['۰۲', 'طراحی', 'ظاهر و ساختار سایت را طراحی می‌کنم و با هم نهایی‌اش می‌کنیم.'],
+      ['۰۳', 'توسعه', 'کدنویسی فرانت و بک‌اند، با گزارش پیشرفت در هر مرحله.'],
+      ['۰۴', 'تحویل و پشتیبانی', 'انتشار سایت و همراهی بعد از تحویل.']
+    ] : [
+      ['01', 'Discovery', 'I get to know your needs, audience and business goals.'],
+      ['02', 'Design', 'I design the look and structure, and we finalize it together.'],
+      ['03', 'Build', 'Front-end and back-end development, with updates at every step.'],
+      ['04', 'Launch & support', 'Your site goes live — and I stay around after handoff.']
+    ];
+    const steps = stepText.map((s, i) => ({ n: s[0], title: s[1], body: s[2], numColor: i === 3 ? c.accentText : c.line2 }));
+
+    return {
+      accent, c, t, steps, lang,
+      dir: fa ? 'rtl' : 'ltr',
+      font: fa ? "'Vazirmatn', system-ui, sans-serif" : "'Manrope', 'Vazirmatn', system-ui, sans-serif",
+      isDark: dark, isLight: !dark,
+      arrowFlip: fa ? 'transform: scaleX(-1)' : '',
+      tagJustify: fa ? 'flex-end' : 'flex-start',
+      toggleTheme: () => this.setState({ theme: dark ? 'light' : 'dark' }),
+      toggleLang: () => this.setState({ lang: fa ? 'en' : 'fa' })
+    };
+  }
+}
+</script>
+</body>
+</html>
