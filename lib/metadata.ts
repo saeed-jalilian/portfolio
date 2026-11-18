@@ -22,7 +22,11 @@ export function buildMetadata(locale: Locale): Metadata {
       description: c.hero.sub,
       locale: ogLocale,
       alternateLocale: other.ogLocale,
+      // A page-level openGraph replaces the inherited one, so the image from
+      // app/opengraph-image.tsx has to be listed here.
+      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: c.meta.title }],
     },
+    twitter: { card: "summary_large_image" },
   };
 }
 

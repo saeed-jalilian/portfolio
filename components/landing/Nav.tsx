@@ -1,4 +1,5 @@
 import type { Content } from "@/content/types";
+import { LogoMark } from "../Logo";
 import { ThemeToggle } from "../ThemeToggle";
 
 export function Nav({ c }: { c: Content }) {
@@ -6,12 +7,7 @@ export function Nav({ c }: { c: Content }) {
     <header className="sticky top-0 z-10 border-b border-line bg-nav-bg backdrop-blur-md">
       <nav className="page-container flex flex-wrap items-center justify-between gap-4 py-4">
         <a href="#top" className="flex items-center gap-3">
-          <span
-            dir="ltr"
-            className="flex size-10 items-center justify-center rounded-[10px] bg-accent font-mono text-sm font-medium text-ink"
-          >
-            sj/
-          </span>
+          <LogoMark size={40} title="" />
           <span className="text-[17px] font-extrabold">{c.name}</span>
         </a>
         <div className="flex flex-wrap items-center gap-6 text-[15px]">

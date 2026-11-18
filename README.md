@@ -15,6 +15,7 @@ pnpm build    # static site written to out/
 - `content/fa.ts` and `content/en.ts`: all copy, services, process steps and projects (same shape, typed in `content/types.ts`).
 - `content/site.ts`: shared facts (name, domain, GitHub, email, phone, Telegram, WhatsApp). Values in `[brackets]` are placeholders; replace them and the contact links update automatically.
 - `app/globals.css`: theme colors (dark and light palettes as CSS variables).
+- `design/brand/`: the brand kit (SVG/PNG logos and usage rules). The site uses `components/Logo.tsx`, the icons in `app/` and `public/`, and `app/opengraph-image.tsx` for link previews.
 
 ## Deploy (Ubuntu server + nginx)
 
@@ -47,4 +48,4 @@ Each deploy (run locally; needs SSH access to the server and rsync installed loc
 DEPLOY_HOST=user@your-server pnpm deploy:server
 ```
 
-This builds the site and syncs `out/` to `/var/www/saeed-jalilian.ir` (override with `DEPLOY_PATH`).
+Run it from a clean `main` checkout; the script refuses otherwise. It builds the site and syncs `out/` to `/var/www/saeed-jalilian.ir` (override with `DEPLOY_PATH`, which must be a folder under `/var/www/`).
