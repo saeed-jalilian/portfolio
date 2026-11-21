@@ -10,7 +10,7 @@ export function Contact({ c }: { c: Content["contact"] }) {
 
   return (
     <section id="contact" className="page-container pt-24 pb-24 md:pt-32 md:pb-32">
-      <div className="reveal grid gap-12 border-t border-line2 pt-12 md:grid-cols-[3fr_2fr] md:gap-16">
+      <div className="reveal grid grid-cols-1 gap-12 border-t border-line2 pt-12 md:grid-cols-[3fr_2fr] md:gap-16">
         <div className="flex flex-col gap-6">
           <h2 className="font-display m-0 text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.1] font-bold rtl:font-medium rtl:leading-[1.35]">
             {c.before}

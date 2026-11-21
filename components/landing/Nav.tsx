@@ -15,7 +15,8 @@ export function Nav({ c }: { c: Content }) {
       <nav className="page-container flex flex-wrap items-center justify-between gap-4 py-3">
         <a href="#top" className="flex items-center gap-3">
           <LogoMark size={36} title="" />
-          <span className="font-medium">{c.name}</span>
+          {/* Below sm the name would push the controls onto a second row of the sticky bar. */}
+          <span className="sr-only font-medium sm:not-sr-only">{c.name}</span>
         </a>
         <div className="flex flex-wrap items-center gap-6 text-base">
           <div className="hidden items-center gap-6 lg:flex">
