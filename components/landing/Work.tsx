@@ -20,7 +20,7 @@ function ProjectCard({ p, c }: { p: Project; c: Content["work"] }) {
           height={p.image.height}
           alt={p.image.alt}
           decoding="async"
-          className="block h-auto w-full transition-[scale] duration-300 ease-(--ease-out) group-hover:scale-[1.02]"
+          className="block h-auto w-full transition-[scale] duration-300 ease-(--ease-out) motion-safe:group-hover:scale-[1.02]"
         />
       </a>
       <div className="grid gap-10 md:grid-cols-[3fr_2fr] md:gap-16">
