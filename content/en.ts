@@ -44,7 +44,7 @@ export const en: Content = {
           "An online shop for a handmade-candle brand. Buyers choose a size, wax, wick, container, color and fragrance in a Persian storefront, and the owner runs the catalog, stock and discounts from a separate admin panel.",
         url: "https://miacandlehub.ir",
         domain: "miacandlehub.ir",
-        tags: ["Next.js", "Nest.js", "Admin panel"],
+        tags: ["Next.js", "Nest.js"],
         role: "Design, front-end, back-end",
         statusValue: "Live",
         image: {

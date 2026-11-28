@@ -44,7 +44,7 @@ export const fa: Content = {
           "فروشگاه آنلاین یک برند شمع دست‌ساز. خریدار در فروشگاه فارسی، سایز، جنس موم، فتیله، ظرف، رنگ و رایحه را انتخاب می‌کند و صاحب برند کاتالوگ، موجودی و تخفیف‌ها را از یک پنل مدیریت جدا اداره می‌کند.",
         url: "https://miacandlehub.ir",
         domain: "miacandlehub.ir",
-        tags: ["Next.js", "Nest.js", "Admin panel"],
+        tags: ["Next.js", "Nest.js"],
         role: "طراحی، فرانت‌اند، بک‌اند",
         statusValue: "آنلاین",
         image: {
